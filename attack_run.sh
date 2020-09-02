@@ -2,12 +2,12 @@
 
 set -u
 
-export QUAY_URL=<URL>
-export UUID=$(uuidgen)
-export DURATION=120
-export PARALLELISM=10
-export NUM_USERS=10
-export RATE=40
+export QUAY_URL=<URL>  # e.g. staging.quay.io (no http/https)
+export UUID=$(uuidgen)  # Used for run-to-run comparisons. The uuid passed to touchstone. 
+export DURATION=120  # Amount of seconds to run each test for.
+export PARALLELISM=10  # Number of jobs to be ran that are each querying a random user
+export NUM_USERS=10 # Total number of users that were created/exist
+export RATE=40 # Requests per second per job
 export PREFIX=perf-test
 export ES=search-cloud-perf-lqrf3jjtaqo7727m7ynd2xyt4y.us-west-2.es.amazonaws.com
 export ES_PORT=80
