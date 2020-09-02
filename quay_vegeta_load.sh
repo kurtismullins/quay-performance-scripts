@@ -20,20 +20,38 @@ version="/api/v1"
 uuid=$(uuidgen)
 
 # Vars for test
+
+# If true, use NodeSelector labels. Otherwise, ignore which node the db/app is on.
 labels=${LABELS:-false}
+
+# Namespace where Quay is deployed. Used for metadata collection by backpack.
 namespace=${NAMESPACE:-quay-mysql57}
+
+# Quay organization.
 org=${ORG:-test}
+
+# All Users created will share this password.
 password=${PASSWORD:-password}
+
+# Target amount of Users to create.
 target_num=${TARGET:-1000}
+
+# User creation rate per second.
 rate=${RATE:-50}
+
+# Usernames & teams/repos will be prefixed with this value. e.g. perf-test_user_1
 prefix=${PREFIX:-perf-test}
+
+# This is where to store the data
 elastic=${ES:-search-cloud-perf-lqrf3jjtaqo7727m7ynd2xyt4y.us-west-2.es.amazonaws.com}
 es_port=${ES_PORT:-80}
-db=${DB:-mysql57}
-test_name=${TEST:-performance_test}
-quay_version=${QUAY_VERSION:-3.3.0}
 
-# Python Wrapper for wrokloads
+# Test-Run Metadata
+db=${DB:-mysql57}  # The Database used
+test_name=${TEST:-performance_test}  # Describes test that was run. [a-zA-Z0-9_]
+quay_version=${QUAY_VERSION:-3.3.0}  # Which image or version of Quay was tested
+
+# Python Wrapper for workloads
 snafu="run_snafu"
 
 # Elasticsearch params
