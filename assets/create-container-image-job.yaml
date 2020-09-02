@@ -23,6 +23,8 @@ spec:
           value: "${NUM_USERS}"
         - name: PREFIX
           value: "${PREFIX}"
+        - name: CONCURRENT_JOBS
+          value: "${CONCURRENT_JOBS}"
         image: quay.io/openshift-scale/scale-ci-workload:master
         imagePullPolicy: Always
         name: load
