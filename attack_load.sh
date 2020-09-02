@@ -4,9 +4,9 @@ set -u
 
 export QUAY_URL=<URL>
 export PREFIX=perf-test
-export PARALLELISM=1
+export PARALLELISM=1  # Number of openshift jobs running at the same time
 export NUM_USERS=1
-export CONCURRENT_JOBS=10
+export CONCURRENT_JOBS=10  # Number of processes each job runs in parallel
 
 kubectl delete ns quay-perf
 kubectl create ns quay-perf
